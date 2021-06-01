@@ -1,0 +1,19 @@
+{
+  "name": "cruise-ship",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jwhitby1989/cruise-ship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jwhitby1989/cruise-ship/issues"
+  },
+  "homepage": "https://github.com/Jwhitby1989/cruise-ship#readme"
+}
