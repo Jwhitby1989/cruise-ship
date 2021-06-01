@@ -1,11 +1,26 @@
 // As a cruise ship captain,
-// So I can get passengers started on their journey,
-// I want a ship to be able to set sail from a port.
-function Ship(port) {
-  this.currentPort = port;
+// So I can get passengers to a new destination,
+
+const { getConsoleOutput } = require("@jest/console");
+
+// I want a ship to be able to dock at a different port.
+function Ship(ports) {
+  this.currentPort = ports[0];
+  this.previousPorts = [];
+  // pass in array
 
   this.setSail = () => {
-    this.currentPort = "";
+    this.previousPorts.push(this.currentPort);
+    this.currentPort = {};
+  };
+
+  this.dock = () => {
+    // find current port index in array
+    const previousPortIndex = ports.indexOf(
+      this.previousPorts[this.previousPorts.length - 1]
+    );
+    // set current port to the next port in the array
+    this.currentPort = ports[previousPortIndex + 1];
   };
 }
 
