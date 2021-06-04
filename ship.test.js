@@ -1,7 +1,6 @@
 // As a cruise ship captain,
 // So I can get passengers to a new destination,
 // I want a ship to be able to dock at a different port.
-const { beforeEach, it, expect } = require("@jest/globals");
 const Ship = require("./ship");
 const Port = require("./port");
 describe("make a cruise ship that has passengers aboard, has a starting point and can accept methods", () => {

@@ -1,8 +1,5 @@
 // As a cruise ship captain,
 // So I can get passengers to a new destination,
-
-const { getConsoleOutput } = require("@jest/console");
-
 // I want a ship to be able to dock at a different port.
 function Ship(ports) {
   this.currentPort = ports[0];

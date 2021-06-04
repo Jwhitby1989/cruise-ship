@@ -3,4 +3,4 @@ function Port(name) {
 }
 
 module.exports = Port;
-// created a 'port' object
+// Port.prototype = {};
