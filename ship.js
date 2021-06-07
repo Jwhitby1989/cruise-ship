@@ -4,13 +4,11 @@
 function Ship(ports) {
   this.currentPort = ports[0];
   this.previousPorts = [];
-  // pass in array
-
+  //   pass in array;
   this.setSail = () => {
     this.previousPorts.push(this.currentPort);
     this.currentPort = {};
   };
-
   this.dock = () => {
     // find current port index in array
     const previousPortIndex = ports.indexOf(
