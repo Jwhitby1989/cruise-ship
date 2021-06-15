@@ -11,9 +11,25 @@ describe("make a cruise ship that has passengers aboard, has a starting point an
   let port2;
   let itinerary;
   beforeEach(() => {
-    port1 = new Port("southampton");
-    port2 = new Port("amsterdam");
-    itinerary = new Itinerary([port1, port2]);
+    port = {
+      addShip: jest.fn(),
+      removeShip: jest.fn(),
+    };
+    port1 = {
+      ...port,
+      name: "Dover",
+      ships: [],
+    };
+    port2 = {
+      ...port,
+      name: "Amsterdam",
+      ships: [],
+    };
+
+    itinerary = {
+      ports: [port1, port2],
+    };
+
     ship = new Ship(itinerary);
   });
   it("creates new object of ship", () => {
@@ -41,36 +57,45 @@ describe("make a cruise ship that has passengers aboard, has a starting point an
     expect(() => ship.setSail()).toThrow("You've gone too far!");
   });
   it("tests the adding of ship method", () => {
-    expect(ship.currentPort.ships[0]).toBe(ship);
+    expect(ship.currentPort.addShip).toHaveBeenCalled();
   });
-  it("tests the new port has a new ship", () => {
+  it("tests it removes ship on setSail", () => {
     ship.setSail();
-    ship.dock();
-    expect(ship.currentPort.ships[0]).toBe(ship);
-  });
-  it("tests the removal of ship from ships array", () => {
-    ship.setSail();
-    expect(ship.previousPort.ships).toHaveLength(0);
+    expect(ship.previousPort.removeShip).toHaveBeenCalled();
   });
 });
 
-describe("make a new object of a port with a name", () => {
+describe("Port test suite", () => {
   let port;
+  let ship;
   beforeEach(() => {
     port = new Port("dover");
+    ship = jest.fn();
   });
   it("tests the creation of a new port object", () => {
     expect(port).toBeInstanceOf(Object);
   });
+  it("Tests ports adds ships method", () => {
+    port.addShip(ship);
+    expect(port.ships.length).toBe(1);
+  });
+  it("tests ports removed from ship method", () => {
+    port.addShip(ship);
+    port.removeShip(ship);
+    expect(port.ships.length).toBe(0);
+  });
 });
-
+// Ship
+//   can set sail
+//   gets added to port on instantiation
+//   can dock at a different port
 describe("creating new Itinerary object", () => {
   let itinerary;
   let port1;
   let port2;
   beforeEach(() => {
-    port1 = new Port("southampton");
-    port2 = new Port("amsterdam");
+    port1 = jest.fn();
+    port2 = jest.fn();
     itinerary = new Itinerary([port1, port2]);
   });
   it("tests the creation of the new itinerary object", () => {
