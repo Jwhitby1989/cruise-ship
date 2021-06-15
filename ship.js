@@ -1,21 +1,25 @@
 // As a cruise ship captain,
 // So I can get passengers to a new destination,
 // I want a ship to be able to dock at a different port.
-function Ship(ports) {
-  this.currentPort = ports[0];
-  this.previousPorts = [];
+function Ship(itinerary) {
+  this.currentPort = itinerary.ports[0];
+  this.currentPort.addShip(this);
+  this.previousPort = null;
   //   pass in array;
   this.setSail = () => {
-    this.previousPorts.push(this.currentPort);
+    if (this.currentPort === itinerary.ports[itinerary.ports.length - 1]) {
+      throw new Error("You've gone too far!");
+    }
+    this.currentPort.removeShip(this);
+    this.previousPort = this.currentPort;
     this.currentPort = {};
   };
   this.dock = () => {
     // find current port index in array
-    const previousPortIndex = ports.indexOf(
-      this.previousPorts[this.previousPorts.length - 1]
-    );
+    const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
     // set current port to the next port in the array
-    this.currentPort = ports[previousPortIndex + 1];
+    this.currentPort = itinerary.ports[previousPortIndex + 1];
+    this.currentPort.addShip(this);
   };
 }
 
