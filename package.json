@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Jwhitby1989/cruise-ship#readme",
   "devDependencies": {
     "jest": "^27.0.3"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }
