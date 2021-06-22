@@ -25,4 +25,7 @@ Controller.prototype = {
       changeImg += 1;
     }, 1000);
   },
+  renderShip(ship) {
+    const shipStart = document.querySelector("portsIndex");
+  },
 };
