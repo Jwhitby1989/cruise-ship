@@ -9,24 +9,26 @@
     <link rel="stylesheet" href="./CruiseShipGUI/styles/styles.css" />
   </head>
   <body>
+    
     <div id="viewport">
       <div id="ship"></div>
       <div id="ports"></div>
+      <button id="sailbutton" onclick="setSail()">SET SAIL!</button>
     </div>
     <script src="./src/controller.js"></script>
     <script src="./src/port.js"></script>
     <script src="./src/Itinerary.js"></script>
-    <!-- <script src="./src/ship.js"></script> -->
+    <script src="./src/ship.js"></script>
     <script>
-      const ship = new Ship(itinerary);
       const port0 = new Port("Dover");
       const port1 = new Port("Liverpool");
       const port2 = new Port("Newcastle");
       const port3 = new Port("Boston");
       const itinerary = new Itinerary([port0, port1, port2, port3]);
-      const controller = new Controller();
+      const ship = new Ship(itinerary);
+      const controller = new Controller(ship);
       controller.renderPorts(itinerary.ports);
-      controller.renderShip(ship);
+      controller.renderShip();
     </script>
   </body>
 </html>

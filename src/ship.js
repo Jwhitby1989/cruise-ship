@@ -4,6 +4,7 @@
 
 (function exportShip() {
   function Ship(itinerary) {
+    this.itinerary = itinerary;
     this.currentPort = itinerary.ports[0];
     this.currentPort.addShip(this);
     this.previousPort = null;
@@ -27,6 +28,6 @@
   if (typeof module !== "undefined" && module.exports) {
     module.exports = Ship;
   } else {
-    window.Port = Ship;
+    window.Ship = Ship;
   }
 })();
