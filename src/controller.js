@@ -15,7 +15,7 @@ Controller.prototype = {
       newPortElement.dataset.portIndex = index;
       portElement.appendChild(newPortElement);
       const elementWidth = parseInt(portElement.style.width,10);
-      portElement.style.width = `${elementWidth + 256}px`;
+      portElement.style.width = `${elementWidth + 150}px`;
     });
   },
   initialiseSea() {
@@ -55,6 +55,6 @@ Controller.prototype = {
     }
   },
   renderMessage(message) {
-    
+
   }
 };
