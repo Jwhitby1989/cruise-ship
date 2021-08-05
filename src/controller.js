@@ -60,6 +60,8 @@ Controller.prototype = {
     newMsgElement.className = "message";
     msgElement.appendChild(newMsgElement);
     msgElement.innerHTML = message;
-    
+    const msgTimeout = msgElement.setTimeout(() => {
+       msgTimeout.removeChild(newMsgElement)
+    }, 2000);
   }
 };
