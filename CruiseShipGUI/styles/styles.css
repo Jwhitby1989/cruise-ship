@@ -46,7 +46,10 @@ body {
 }
 
 #message {
-  position: relative;
-  text-align: center;
-  color: chartreuse;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-bottom: black;
 }

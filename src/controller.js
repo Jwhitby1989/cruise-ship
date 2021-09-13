@@ -70,7 +70,7 @@ Controller.prototype = {
   renderMessage(message) {
     const msgElement = document.querySelector("#viewport");
     const newMsgElement = document.createElement("div");
-    newMsgElement.className = "#message";
+    newMsgElement.id = "message";
     msgElement.appendChild(newMsgElement);
     newMsgElement.innerHTML = message;
     setTimeout(() => {
